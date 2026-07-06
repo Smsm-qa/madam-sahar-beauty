@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة المايكروبليدنج | مركز مدام سحر</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .hero-img { width: 100%; border-radius: 20px; margin-bottom: 20px; }
+        h1 { color: #b76e79; }
+        .service-list { list-style: none; padding: 0; text-align: right; }
+        .service-list li { margin-bottom: 15px; padding-right: 30px; position: relative; }
+        .service-list li::before { content: '✨'; position: absolute; right: 0; }
+        .expert-tip { background: #fff5f7; padding: 20px; border-right: 5px solid #b76e79; border-radius: 10px; margin: 20px 0; text-align: right; }
+        .price-tag { font-size: 1.2em; font-weight: bold; color: #b76e79; margin: 20px 0; }
+        .btn { display: block; width: 100%; padding: 15px; text-align: center; background: #b76e79; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; margin-top: 10px; border: none; cursor: pointer; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: white; padding: 30px; border-radius: 20px; width: 80%; max-width: 350px; text-align: center; }
+        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="images/mico.jpeg" alt="خدمة المايكروبليدنج" class="hero-img">
+    <h1>🖊️ المايكروبليدنج الاحترافي</h1>
+    <p>ارسمي جمالك! تقنية المايكروبليدنج عندنا مش مجرد رسم، دي لوحة فنية بتبرز جمال عيونك وتريحك من عناء المكياج اليومي.</p>
+
+    <ul class="service-list">
+        <li><strong>رسم دقيق:</strong> شعرة شعرة لمظهر طبيعي جداً.</li>
+        <li><strong>تعبئة احترافية:</strong> وداعاً للفراغات المزعجة.</li>
+        <li><strong>ثبات عالي:</strong> نتائج تدوم طويلاً بلمسة فخمة.</li>
+    </ul>
+
+    <div class="expert-tip">
+        <h3>💡 نصيحة مدام سحر:</h3>
+        <p>عشان تحافظي على نتائج المايكروبليدنج لأطول فترة، تجنبي التعرض المباشر للشمس واستخدمي مرطب خفيف بعد الجلسة.</p>
+    </div>
+
+    <div class="price-tag">السعر: يبدأ من 30 ألف جنيه</div>
+
+    <button onclick="document.getElementById('contactModal').style.display='flex'" class="btn">احجزي موعدك الآن ✨</button>
+    <a href="index.html" style="display:block; text-align:center; margin-top:15px; color:#999; text-decoration:none;">العودة للرئيسية</a>
+</div>
+
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <h3>يسعدنا تواصلك!</h3>
+        <p>اكتبي اسمك عشان ننسق ليكِ الموعد:</p>
+        <input type="text" id="userName" placeholder="اسمك الكريم...">
+        <button onclick="sendToWhatsApp()" class="btn">إرسال للواتساب 📱</button>
+        <button onclick="this.parentElement.parentElement.style.display='none'" style="background:none; border:none; margin-top:10px; color:#777; cursor:pointer;">إلغاء</button>
+    </div>
+</div>
+
+<script>
+    function sendToWhatsApp() {
+        var name = document.getElementById('userName').value;
+        if(name == "") { alert("من فضلك اكتبي اسمك"); return; }
+        var url = "https://wa.me/249916825552?text=أهلاً%20مركز%20مدام%20سحر،%20معاكم%20" + name + "%20حابّة%20استفسر%20عن%20خدمة%20المايكروبليدنج.";
+        window.open(url, '_blank');
+        document.getElementById('contactModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

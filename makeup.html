@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم المكياج | مركز مدام سحر</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .gallery-img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+        h1 { color: #b76e79; text-align: center; }
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { margin-bottom: 15px; padding: 10px; background: #fafafa; border-radius: 10px; border-right: 4px solid #b76e79; }
+        .expert-tip { background: #fff5f7; padding: 20px; border-right: 5px solid #b76e79; margin: 25px 0; border-radius: 10px; text-align: right; }
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .price-table th, .price-table td { padding: 12px; border: 1px solid #eee; text-align: center; }
+        .btn { display: block; width: 100%; padding: 15px; background: #b76e79; color: white; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; text-align: center; }
+        .modal-content input { width: 90%; padding: 12px; margin: 15px 0; border: 2px solid #eee; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <img src="images/makeup.jpeg" alt="خدمة المكياج" class="gallery-img">
+            
+            <h1>✨ قسم المكياج الاحترافي</h1>
+            <p>في مركز مدام سحر، بنطلع جمالك الفريد بلمسة فنية تخليكِ ملكة في كل مناسباتك.</p>
+
+            <section>
+                <h2>ليه تختاري خدماتنا؟</h2>
+                <ul class="service-list">
+                    <li><strong>ماركات عالمية:</strong> بنستخدم أرقى الماركات الأصلية عشان نضمن ليكِ ثبات ونضارة تدوم.</li>
+                    <li><strong>خبراء تجميل:</strong> فناناتنا بيعرفوا يبرزوا جمال ملامحك بطريقة تناسب ذوقك وشكلك.</li>
+                    <li><strong>نظافة وتعقيم:</strong> راحتك وأمانك هم أولويتنا، وكل فرش تجميلنا معقمة 100%.</li>
+                </ul>
+            </section>
+
+            <section class="expert-tip">
+                <h3>💡 نصيحة مدام سحر:</h3>
+                <p>عشان مكياجك يطلع بأحلى صورة، ننصحك تعملي تنظيف بشرة قبل المناسبة بـ 24 ساعة، وشوفي الفرق في النضارة!</p>
+            </section>
+
+            <section>
+                <h2>قائمة الأسعار:</h2>
+                <table class="price-table">
+                    <thead><tr><th>الخدمة</th><th>السعر (ألف جنيه)</th></tr></thead>
+                    <tbody>
+                        <tr><td>مكياج ناعم (يومي)</td><td>25</td></tr>
+                        <tr><td>مكياج سهرة احترافي</td><td>50</td></tr>
+                        <tr><td>بكج عروس كامل (VIP)</td><td>150</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div style="margin-top: 30px;">
+                <button onclick="document.getElementById('contactModal').style.display='flex'" class="btn">تواصل معنا واتساب للحجز</button>
+                <br>
+                <a href="index.html" class="btn" style="background:#777;">← العودة للرئيسية</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة التفاعلية -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <h3>يا ريت تكتبي اسمك عشان نعرف  ننسق   ليك موعد</h3>
+            <input type="text" id="userName" placeholder="اكتبي اسمك هنا...">
+            <button onclick="sendToWhatsApp()" class="btn" style="width:100%;">إرسال عبر الواتساب</button>
+            <button onclick="document.getElementById('contactModal').style.display='none'" style="width:100%; margin-top:15px; border:none; background:none; cursor:pointer; color: #777;">إلغاء</button>
+        </div>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            var name = document.getElementById('userName').value;
+            if(name == "") { alert("من فضلك اكتبي اسمك أولاً"); return; }
+            var url = "https://wa.me/249916825552?text=أهلاً%20مركز%20مدام%20سحر،%20معاكم%20" + name + "%20عايزة%20استفسر%20عن%20خدمات%20المكياج.";
+            window.open(url, '_blank');
+            document.getElementById('contactModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

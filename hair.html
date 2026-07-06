@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم الشعر | مركز مدام سحر</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .gallery-img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+        h1 { color: #b76e79; text-align: center; }
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { margin-bottom: 15px; padding: 10px; background: #fafafa; border-radius: 10px; border-right: 4px solid #b76e79; }
+        .expert-tip { background: #fff5f7; padding: 20px; border-right: 5px solid #b76e79; margin: 25px 0; border-radius: 10px; text-align: right; }
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .price-table th, .price-table td { padding: 12px; border: 1px solid #eee; text-align: center; }
+        .btn { display: block; width: 100%; padding: 15px; background: #b76e79; color: white; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; text-align: center; }
+        .modal-content input { width: 90%; padding: 12px; margin: 15px 0; border: 2px solid #eee; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <img src="images/hair2.jpeg" alt="خدمة الشعر" class="gallery-img">
+            
+            <h1>💇‍♀️ قسم العناية بالشعر</h1>
+            <p>لأن شعركِ هو تاج جمالك، نقدم لكِ أحدث صيحات القص والصبغة والترميم بأيادي خبيرة، لنمنحكِ إطلالة متألقة وصحة تدوم.</p>
+
+            <section>
+                <h2>خدماتنا المميزة:</h2>
+                <ul class="service-list">
+                    <li><strong>قص وتصفيف:</strong> قصات عصرية تبرز جمال ملامحك.</li>
+                    <li><strong>صبغات احترافية:</strong> ألوان جذابة مع حماية فائقة للشعر.</li>
+                    <li><strong>علاج البروتين:</strong> لشعر ناعم، صحي، ولامع كالحرير.</li>
+                </ul>
+            </section>
+
+            <section class="expert-tip">
+                <h3>💡 نصيحة مدام سحر:</h3>
+                <p>الترطيب العميق واستخدام حمامات الزيت الطبيعية مرة كل أسبوع هو المفتاح السحري للحفاظ على حيوية شعركِ بعيداً عن التلف.</p>
+            </section>
+
+            <section>
+                <h2>قائمة الأسعار (ألف جنيه):</h2>
+                <table class="price-table">
+                    <thead><tr><th>الخدمة</th><th>السعر</th></tr></thead>
+                    <tbody>
+                        <tr><td>قص تجميلي</td><td>20</td></tr>
+                        <tr><td>صبغة كاملة</td><td>120</td></tr>
+                        <tr><td>بروتين (يبدأ من)</td><td>150</td></tr>
+                        <tr><td>قص علاجي</td><td>15</td></tr>
+                        <tr><td>حمام زيت</td><td>30</td></tr>
+                        <tr><td>استشوار</td><td>25</td></tr>
+                        <tr><td>مكواة</td><td>20</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div style="margin-top: 30px;">
+                <button onclick="document.getElementById('contactModal').style.display='flex'" class="btn">تواصل معنا واتساب للحجز</button>
+                <br>
+                <a href="index.html" class="btn" style="background:#777;">← العودة للرئيسية</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- النافذة التفاعلية -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <h3>يا ريت تكتبي اسمك عشان  ننسق ليك موعد</h3>
+            <input type="text" id="userName" placeholder="اكتبي اسمك هنا...">
+            <button onclick="sendToWhatsApp()" class="btn" style="width:100%;">إرسال عبر الواتساب</button>
+            <button onclick="document.getElementById('contactModal').style.display='none'" style="width:100%; margin-top:15px; border:none; background:none; cursor:pointer; color: #777;">إلغاء</button>
+        </div>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            var name = document.getElementById('userName').value;
+            if(name == "") { alert("من فضلك اكتبي اسمك أولاً"); return; }
+            var url = "https://wa.me/249916825552?text=أهلاً%20مركز%20مدام%20سحر،%20معاكم%20" + name + "%20عايزة%20استفسر%20عن%20خدمات%20الشعر.";
+            window.open(url, '_blank');
+            document.getElementById('contactModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

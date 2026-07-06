@@ -1,0 +1,668 @@
+ 
+/* --- 1. أساسيات التصميم والمتغيرات --- */
+:root {
+    --primary: #883e4d;      /* وردي غامق ملكي وفخم */
+    --secondary: #a36573;    /* وردي غامق ترابي هادئ */
+    --light: #fff5f7;        /* لون خلفية فاتح جداً ومتناسق */
+    --text: #333333;         /* لون نص داكن لوضوح القراءة */
+    --white: #ffffff;
+}
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+}
+
+body { 
+    direction: rtl; 
+    background-color: var(--light); 
+    color: var(--text); 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+}
+
+/* --- 2. الهيدر والقائمة (مع دعم الجوال) --- */
+header { 
+    background: var(--white); 
+    padding: 15px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+}
+
+.logo img { height: 50px; border-radius: 50%; }
+
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--primary); }
+
+nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 14px; transition: 0.3s; }
+nav a:hover { color: var(--secondary); }
+
+/* --- 3. العناصر العامة والأزرار --- */
+.container { padding: 40px 20px; text-align: center; }
+h2 { color: var(--primary); margin-bottom: 20px; }
+
+.btn { 
+    display: inline-block; padding: 12px 25px; 
+    background: var(--primary); color: white; 
+    text-decoration: none; border-radius: 30px; 
+    transition: 0.3s; margin-top: 10px; border: none; cursor: pointer;
+}
+.btn:hover { background: var(--secondary); }
+
+/* --- 4. معرض الصور والخدمات --- */
+.gallery-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px; 
+    padding: 20px; 
+}
+
+.gallery-img, .service-card { width: 100%; border-radius: 15px; transition: 0.3s; }
+
+.service-card { 
+    background: white; padding: 20px; display: block; 
+    text-decoration: none; border: 1px solid #eee; 
+    color: var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- 5. النموذج (Booking Form) --- */
+.booking-form { max-width: 500px; margin: 20px auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.form-group { margin-bottom: 15px; text-align: right; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; margin-top: 5px; }
+
+/* --- 6. الأزرار العائمة --- */
+.floating-btn {
+    position: fixed; left: 20px; z-index: 999;
+    padding: 12px 20px; background: var(--primary); color: white;
+    border-radius: 50px; text-decoration: none; font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: none; cursor: pointer;
+    bottom: 20px;
+}
+
+/* --- 7. استعلامات الوسائط (Responsive) --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav ul { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 70px; 
+        right: 0; 
+        width: 100%; 
+        background: white; 
+        padding: 20px; 
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+    }
+    nav ul.active { display: flex; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+}/* --- تنسيق خاص بصفحة العروس --- */
+.bridal-header {
+    background: linear-gradient(rgba(183, 110, 121, 0.8), rgba(183, 110, 121, 0.8)), url('images/bridal-banner.jpg');
+    background-size: cover;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 50px 50px;
+}
+
+.package-card {
+    background: #fff;
+    border: 2px solid var(--secondary);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.price-tag {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 15px 0;
+}/* تحسين شكل الصور في المعرض */
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* لضمان تناسق الصور */
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* تكبير بسيط عند وضع الماوس */
+    box-shadow: 0 10px 20px rgba(183, 110, 121, 0.3);
+}
+
+/* بطاقات الخدمات بتصميم "الزجاج" (Glassmorphism) */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+}
+
+/* تنسيق العناوين بخط مميز */
+h2 {
+    position: relative;
+    padding-bottom: 10px;
+}
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}.btn {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: 0 4px 15px rgba(183, 110, 121, 0.4);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    transform: translateY(-2px);
+}html {
+    scroll-behavior: smooth; /* تجعل التنقل بين الأقسام ناعماً */
+}
+
+@media (max-width: 600px) {
+    h2 { font-size: 22px; }
+    p { font-size: 14px; }
+    .container { padding: 20px 10px; }
+}body {
+    direction: rtl;
+    /* خلفية بلون فاتح جداً مع تدرج خفيف */
+    background-color: #fffafb;
+    background-image: radial-gradient(#d6a1b1 0.5px, transparent 0.5px);
+    background-size: 20px 20px; /* يعطي نمط النقاط الناعم */
+    color: var(--text);
+    line-height: 1.6;
+}.card, .service-card, .booking-form {
+    background: #ffffff;
+    border-radius: 25px; /* حواف دائرية انسيابية */
+    border: 1px solid rgba(183, 110, 121, 0.1);
+    box-shadow: 0 10px 30px rgba(183, 110, 121, 0.08); /* ظل وردي خفيف */
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 40px rgba(183, 110, 121, 0.15);
+    transform: translateY(-5px);
+}.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.service-card i {
+    font-size: 30px;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}.card, .service-card, .booking-form, header {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px); /* هذا هو التأثير السحري */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}input:focus, select:focus {
+    outline: none;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
+    background: #fff;
+}/* أضيفي هذا للجسم (body) إذا كنتِ تستخدمين مكتبة تحميل */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+/* زيادة المسافات في الشاشات الكبيرة */
+@media (min-width: 1024px) {
+    .container { padding: 80px 15%; }
+    .gallery-grid { gap: 30px; }
+}
+
+/* تباعد ذكي بين الفقرات */
+p { margin-bottom: 15px; }
+::selection {
+    background: var(--primary);
+    color: white;
+}/* تزيين بطاقة "شاركينا تجربتك" */
+#testimonials .card {
+    background: #ffffff;
+    border: 1px solid rgba(183, 110, 121, 0.2);
+    border-radius: 30px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(183, 110, 121, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* إضافة تأثير زخرفي خفيف خلف البطاقة */
+#testimonials .card::before {
+    content: "✨";
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 20px;
+    opacity: 0.3;
+}
+
+/* تزيين قسم "رأيك يهمنا" (Feedback Section) */
+#feedback {
+    background: linear-gradient(135deg, #fffafb, #fcecee);
+    border: 2px dashed var(--secondary);
+    border-radius: 40px;
+    padding: 50px 20px;
+    margin: 40px auto;
+    max-width: 700px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+#feedback:hover {
+    border-style: solid;
+    box-shadow: 0 10px 30px rgba(183, 110, 121, 0.15);
+}
+
+/* تنسيق زر "أضيفي تعليقك" ليكون أكثر جاذبية */
+#feedback .btn {
+    background: var(--primary);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#feedback .btn:hover {
+    transform: scale(1.05);
+    background: var(--secondary);
+}/* حاوية الأسئلة */
+.faq-item {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(183, 110, 121, 0.05);
+    overflow: hidden;
+}
+
+/* زر السؤال */
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    background: #fffafb;
+    border: none;
+    text-align: right;
+    font-weight: bold;
+    color: var(--primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* إجابة السؤال */
+.faq-answer {
+    padding: 0 20px 20px 20px;
+    color: #666;
+    line-height: 1.6;
+}.offer-box {
+    background: linear-gradient(135deg, #b76e79, #d6a1b1);
+    color: white;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: 0 10px 25px rgba(183, 110, 121, 0.3);
+}
+
+.offer-box h3 { font-size: 24px; margin-bottom: 15px; }
+
+/* تنسيق زر "اضغط للتفاصيل" داخل العرض */
+.offer-box button {
+    background: white;
+    color: var(--primary);
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.offer-box button:hover {
+    background: #fdf5f6;
+    transform: scale(1.05);
+}.faq-answer {
+    display: none; /* مخفية في البداية */
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.faq-question::after {
+    content: '+'; /* علامة تظهر أن السؤال قابل للضغط */
+    font-size: 20px;
+}/* حاوية النموذج */
+.booking-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(183, 110, 121, 0.15); /* ظل ناعم */
+    border: 1px solid rgba(183, 110, 121, 0.1);
+}
+
+/* تنسيق الحقول */
+.form-group { margin-bottom: 25px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    background: #fff;
+    outline: none;
+}
+
+/* زر الحجز (جذاب جداً) */
+.whatsapp-book-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #25d366, #128c7e); /* لون واتساب */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-book-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}.map-container {
+    width: 100%;
+    height: 350px;
+    border-radius: 30px;
+    overflow: hidden; /* يضمن بقاء الزوايا دائرية */
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+}#about {
+    background: #ffffff;
+    padding: 60px 20px;
+    border-radius: 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(183, 110, 121, 0.05);
+}
+
+#about p {
+    font-size: 18px;
+    color: #555;
+    line-height: 2;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.service-item {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 20px;
+    border: 1px solid #fdf5f6;
+    transition: 0.4s;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(183, 110, 121, 0.1);
+}
+
+.service-item i, .service-item span {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}/* تنسيق بطاقات الآراء */
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 25px;
+    border-right: 5px solid var(--primary); /* خط جانبي لتمييز البطاقة */
+    box-shadow: 0 10px 20px rgba(183, 110, 121, 0.08);
+    position: relative;
+}
+
+.card p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card strong {
+    color: var(--primary);
+    display: block;
+    margin-top: 10px;
+}.emergency-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff9f9;
+    border-top: 2px dashed var(--primary);
+    border-bottom: 2px dashed var(--primary);
+}
+
+.emergency-btn {
+    background: #d63031; /* لون أحمر طوارئ */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+}
+
+.emergency-btn:hover {
+    transform: scale(1.05);
+    background: #b52a2a;
+}.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 400px;
+    margin: 10% auto;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.whatsapp-btn {
+    display: block;
+    background: #25d366;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-weight: bold;
+}header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary); }
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #fffafb 0%, #ffffff 100%);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* تحسين زر "اقرئي قصتنا" */
+.btn-story {
+    padding: 15px 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-story:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+}.hero {
+    /* خلفية صورة مع تغطية لونية */
+    background: linear-gradient(rgba(255, 250, 251, 0.85), rgba(255, 250, 251, 0.85)), 
+                url('images/sahar.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* تنسيق النص ليتوسط الخلفية */
+    text-align: center;
+    padding: 120px 20px;
+    border-radius: 0 0 50px 50px; /* انحناء سفلي يعطي طابعاً عصرياً */
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 40px;
+}.back-btn {
+    padding: 10px 20px;
+    background-color: #d6879e; /* لون مستوحى من زر الحجز في الصورة */
+    color: white;
+    border: none;
+    border-radius: 25px; /* حواف دائرية تتناسب مع زر الحجز */
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #b56a80; /* لون أغمق قليلاً عند التمرير */
+}

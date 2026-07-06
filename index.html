@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز مدام سحر للتجميل</title>
+ <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- في قسم الـ head -->
+<link rel="stylesheet" href="style.css">
+<!-- إضافة Meta لتجاوب الشاشات -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+ 
+ <header>
+    <div class="logo">
+        <a href="index.html"><img src="images/logo.jpeg" alt="Logo"></a>
+    </div>
+    
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#services">أقسام الخدمات</a></li>
+            <li><a href="bridal.html">تجهيزات العروس</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+    </nav>
+</header>
+    
+ <div id="statusAlert" class="alert"></div>
+<section style="text-align: center; padding: 20px; background: #fffafb;">
+    <h2 style="color: #b76e79;">مرحباً بكِ في عالمنا</h2>
+    <p>هل تودين معرفة سر الجمال في مركز مدام سحر؟</p>
+    <a href="about.html" class="btn" style="background:#b76e79;">اقرئي قصتنا</a>
+</section>
+
+<script>
+    function checkWorkingHours() {
+        var now = new Date();
+        var hour = now.getHours(); // يجلب الساعة الحالية
+        var alertDiv = document.getElementById('statusAlert');
+        
+        // أوقات العمل من 9 صباحاً (9) إلى 7 مساءً (19)
+        if (hour >= 9 && hour < 19) {
+            alertDiv.innerHTML = "✅ المركز مفتوح الآن، نتشرف بزيارتكم!";
+            alertDiv.style.color = "green";
+        } else {
+            alertDiv.innerHTML = "⚠️ عذراً، المركز مغلق حالياً، ننتظركم في الموعد القادم!";
+            alertDiv.style.color = "#d63031";
+        }
+    }
+    // تشغيل الفحص عند تحميل الصفحة
+    checkWorkingHours();
+</script>
+    <section id="gallery" class="container">
+        <h2>معرض الصور</h2>
+        <div class="gallery-grid">
+            <img src="images/hair2.jpeg" class="gallery-img" alt="خدمات الشعر">
+            <img src="images/skincare.jpeg" class="gallery-img" alt="خدمات البشرة">
+            <img src="images/nails.jpeg" class="gallery-img" alt="خدمات  ">
+            <img src="images/makeup.jpeg" class="gallery-img" alt="خدمات البشرة">
+            <img src="images/henna.jpeg" class="gallery-img" alt="خدمات الحنة">
+            <img src="images/wex.jpeg" class="gallery-img" alt="خدمات الواكس">
+            <img src="images/lashes.jpeg" class="gallery-img" alt="خدمات الرموش">
+            <img src="images/mico.jpeg" class="gallery-img" alt="خدمات المايكروبليدنج">
+            <img src="images/bridal1.jpeg" class="gallery-img" alt="خدمات تجهيز العروس">
+            <img src="images/bridal2.jpeg" class="gallery-img" alt="خدمات تجهيز العروس">
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>ماذا تقول عميلاتنا؟</h2>
+        <div class="testimonial-container">
+            <div class="card">
+                <p>"تجربة ولا أروع، تجهيزات العروس كانت مثالية!"</p>
+                <strong>- سارة (عروس)</strong>
+            </div>
+            <div class="card">
+                <p>"المايكروبليدنج طلع طبيعي جداً، شكراً مدام سحر."</p>
+                <strong>- ندى</strong>
+            </div>
+        </div>
+    </section>
+   <!-- زر الطوارئ -->
+<section class="emergency-section">
+    <button class="emergency-btn" onclick="openEmergencyModal()">🚨 لدي مناسبة فجائية!</button>
+</section>
+
+<!-- نافذة الطوارئ -->
+<div id="emergencyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEmergencyModal()">&times;</span>
+        <h2>📅 حجوزات الطوارئ</h2>
+        <p>لا تقلقي، نحن هنا لإنقاذ إطلالتك! تواصلي معنا فوراً عبر واتساب للتنسيق:</p>
+        <a href="https://wa.me/249916825552?text=مرحباً، لدي مناسبة فجائية وأحتاج موعد طارئ!" class="whatsapp-btn">تواصل عبر واتساب الآن</a>
+    </div>
+</div>
+
+<!-- الإحصائيات -->
+<section id="stats" class="container stats-grid">
+    <div class="stat-item">
+        <h3>500+</h3>
+        <p>عميلة سعيدة</p>
+    </div>
+    <div class="stat-item">
+        <h3>13 سنوات</h3>
+        <p>من الخبرة والتميز</p>
+    </div>
+</section>
+
+<section id="about" style="padding: 50px 20px; text-align: center; background-color: #fdf5f6;">
+    <h2 style="color: #b76e79;">من نحن</h2>
+    <p style="max-width: 800px; margin: 20px auto; line-height: 1.8; color: #555;">
+        نحن في "مركز مدام سحر" نؤمن بأن الجمال يبدأ بالعناية والاهتمام. نسعى دائماً لتقديم أفضل خدمات العناية بالبشرة والشعر بأعلى معايير الجودة والاحترافية. 
+        فريقنا المتخصص جاهز لاستقبالك وتلبية كافة احتياجاتك لتظهري بأجمل إطلالة.
+    </p>
+</section>
+
+<!-- الخدمات -->
+<section id="services" class="container">
+    <h2>أقسام الخدمات</h2>
+    <div class="gallery-grid">
+        <a href="hair.html" class="service-card"><h3>💇‍♀️ قسم الشعر</h3></a>
+        <a href="makeup.html" class="service-card"><h3>💄 قسم المكياج</h3></a>
+        <a href="skincare.html" class="service-card"><h3>✨ قسم البشرة</h3></a>
+        <a href="henna.html" class="service-card"><h3>🎨 قسم الحنة</h3></a>
+        <a href="nails.html" class="service-card"><h3>💅 العناية بالارجل والأيادي</h3></a>
+        <a href="wax.html" class="service-card"><h3>🍯 الواكس والاسويت</h3></a>
+        <a href="lashes.html" class="service-card"><h3>👁️ الرموش بأنواعها</h3></a>
+        <a href="mico.html" class="service-card"><h3>🖊️ المايكروبليدنج</h3></a>
+    </div>
+ <div class="card" style="text-align: center;">
+    <h3>تجهيزات العروسات</h3>
+    <p>كوني أجمل عروس في يومك الخاص مع باقاتنا المتكاملة</p>
+    <p><strong>خصم 20% لفترة محدودة!</strong></p>
+    
+    <a href="bridal.html" class="btn">اضغط للتفاصيل أكثر</a>
+</div>
+</section>
+
+<!-- العروض -->
+<section id="offers" class="container">
+    <h2>عروضنا الحصرية</h2>
+    <div class="offer-box" id="offerBox">
+        <h3>خصم 20% لفترة محدودة</h3>
+        <button onclick="changeOffer()">اضغط لتفاصيل أكثر</button>
+    </div>
+</section>
+ <!-- Header & Status (سابق ذكرهما) -->
+    <header>...</header>
+    <div id="statusAlert" class="alert" style="display: none;">⚠️ عذراً، المركز مغلق حالياً!</div>
+
+    <!-- الأقسام السابقة (Emergency, Stats, Services, Offers) تم دمجها هنا -->
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section id="faq" class="container">
+        <h2>أسئلة شائعة</h2>
+        <div class="faq-item">
+            <button class="faq-question">ما هي طرق الدفع المتاحة؟</button>
+            <div class="faq-answer"><p>نقبل الدفع نقداً عند الوصول.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">هل يتطلب الحجز دفع عربون؟</button>
+            <div class="faq-answer"><p>نعم، يرجى التواصل عبر الواتساب لتأكيد الحجز.</p></div>
+        </div>
+    </section>
+ <!-- هذا القسم سيحل محل قسم "احجزي موعدك الآن" القديم في image_0.png -->
+<section id="booking-section">
+    <div class="container">
+        <h2>📅 احجزي موعدك الآن - نظام متطور</h2>
+        <p>يرجى ملء البيانات التالية للتأكيد الفوري عبر واتساب:</p>
+
+        <form id="bookingForm" class="booking-form">
+            
+            <!-- حقل الاسم (مع تحقق من الطول) -->
+            <div class="form-group">
+                <label for="clientName">الاسم الكريم*</label>
+                <input type="text" id="clientName" name="clientName" placeholder="مثال: سارة محمد" required minlength="3">
+                <span class="error-message" id="nameError"></span>
+            </div>
+
+            <!-- قائمة الخدمات المنسدلة -->
+            <div class="form-group">
+                <label for="serviceType">نوع الخدمة*</label>
+                <select id="serviceType" name="serviceType" required>
+                    <option value="" disabled selected>اختاري الخدمة</option>
+                    <option value="hair">قسم الشعر</option>
+                    <option value="makeup">قسم المكياج</option>
+                    <option value="skincare">قسم البشرة</option>
+                    <option value="henna">قسم الحنة</option>
+                    <option value="nails">العناية بالأظافر</option>
+                    <option value="wax">الواكس والسويت</option>
+                    <option value="lashes">الرموش</option>
+                    <option value="mico">المايكروبليدنج</option>
+                </select>
+            </div>
+
+            <!-- حقل التاريخ -->
+            <div class="form-group">
+                <label for="bookingDate">تاريخ الموعد المفضل*</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
+                <span class="error-message" id="dateError"></span>
+            </div>
+
+            <!-- زر الإرسال عبر واتساب -->
+            <button type="submit" class="whatsapp-book-btn">
+                <i class="fab fa-whatsapp"></i> تأكيد الحجز عبر الواتساب
+            </button>
+            
+            <!-- رسالة تأكيد الإرسال -->
+            <p id="formStatusMessage" style="display: none; color: green; text-align: center; margin-top: 10px;"></p>
+
+        </form>
+    </div>
+</section>
+
+<!-- سكريبت التحقق من صحة البيانات وتجهيز رسالة الواتساب -->
+<script>
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // منع الإرسال الافتراضي
+        let isValid = true;
+
+        // 1. التحقق من الاسم (على الأقل 3 أحرف)
+        const nameInput = document.getElementById("clientName");
+        const nameError = document.getElementById("nameError");
+        if (nameInput.value.trim().length < 3) {
+            nameError.textContent = "الاسم يجب أن يكون من 3 أحرف على الأقل.";
+            isValid = false;
+        } else {
+            nameError.textContent = "";
+        }
+
+        // 2. التحقق من التاريخ (لا يمكن حجزه في الماضي)
+        const dateInput = document.getElementById("bookingDate");
+        const dateError = document.getElementById("dateError");
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // ضبط الوقت لليوم فقط
+        if (selectedDate < today) {
+            dateError.textContent = "لا يمكن اختيار تاريخ في الماضي.";
+            isValid = false;
+        } else {
+            dateError.textContent = "";
+        }
+
+        // إذا كانت البيانات صحيحة، قم بتجهيز رسالة الواتساب
+        if (isValid) {
+            const name = nameInput.value;
+            const service = document.getElementById("serviceType").options[document.getElementById("serviceType").selectedIndex].text;
+            const date = dateInput.value;
+
+            // رقم الواتساب الخاص بك
+            const phoneNumber = "249916825552"; 
+            
+            // تنسيق الرسالة
+            let whatsappMessage = `مرحباً، أريد حجز موعد جديد:%0A`;
+            whatsappMessage += `- الاسم: ${name}%0A`;
+            whatsappMessage += `- الخدمة: ${service}%0A`;
+            whatsappMessage += `- التاريخ: ${date}`;
+
+            // رابط الواتساب
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+            // إظهار رسالة نجاح وتوجيه المستخدم
+            document.getElementById("formStatusMessage").textContent = "جاري تحويلك إلى واتساب لتأكيد الحجز...";
+            document.getElementById("formStatusMessage").style.display = "block";
+
+            // فتح الرابط في نافذة جديدة
+            window.open(whatsappUrl, '_blank');
+            
+            // إعادة تعيين النموذج
+            this.reset();
+            setTimeout(() => {
+                document.getElementById("formStatusMessage").style.display = "none";
+            }, 3000);
+        }
+    });
+</script>
+    <!-- الخريطة -->
+    <section class="container">
+        <h2>موقعنا</h2>
+        <div class="map-container">
+ <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3845.0188673445723!2d32.48450018514903!3d15.483417289245136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDI5JzAwLjMiTiAzMsKwMjgnNTYuMyJF!5e0!3m2!1sar!2sqa!4v1783257872866!5m2!1sar!2sqa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+    </section>
+<!-- قسم آراء العملاء النهائي -->
+<section id="testimonials" class="container">
+    <h2 style="text-align: center; color: #b76e79;">آراء عملائنا</h2>
+    
+    <div class="testimonial-grid">
+        <div class="card testimonial-card">
+            <p>"مركز رائع وخدمة ممتازة، أنصح به بشدة!"</p>
+            <small style="display: block; margin-top: 10px; font-weight: bold; color: #777;">- سارة أحمد</small>
+        </div>
+        <div class="card testimonial-card">
+            <p>"أفضل مكان للعناية بالبشرة، تعامل راقٍ جداً."</p>
+            <small style="display: block; margin-top: 10px; font-weight: bold; color: #777;">- فاطمة علي</small>
+        </div>
+    </div>
+
+<div class="rating" id="rating-stars" style="font-size: 30px; cursor: pointer; color: #ccc;">
+    <span onclick="rate(1)">★</span>
+    <span onclick="rate(2)">★</span>
+    <span onclick="rate(3)">★</span>
+    <span onclick="rate(4)">★</span>
+    <span onclick="rate(5)">★</span>
+</div>
+
+<div style="text-align: center; margin-top: 50px;">
+    <a href=" https://www.facebook.com/sahar.srmad " target="_blank" style="font-size: 30px; margin: 10px; color: #3b5998;"><i class="fab fa-facebook"></i></a>
+    <a href=" https://www.instagram.com/saharsrmad?igsh=Y3Eza2I0MXJnZ3g4 " target="_blank" style="font-size: 30px; margin: 10px; color: #e1306c;"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@saharsrmad?_r=1&_t=ZS-97mEpdgyXai" target="_blank" style="font-size: 30px; margin: 10px; color: #000;"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/249916825552" target="_blank" style="font-size: 35px; margin: 10px; color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+<section id="social-section" style="text-align: center; margin: 40px 0;">
+    <h3>تابعونا على منصات التواصل</h3>
+    <div class="icons">
+        </div>
+</section>
+</div>
+    <!-- بطاقة إضافة تعليق -->
+    <div class="card" style="text-align: center; margin-top: 30px; border: 2px dashed #b76e79;">
+        <h3>شاركينا تجربتك في مركز مدام سحر</h3>
+        <p>رأيك يهمنا ويساعدنا على تقديم الأفضل!</p>
+        <!-- هنا ضع الرابط الخاص بك بدلاً من # -->
+        <a href="feedback.html" class="btn">أضفي تعليقك الآن</a>
+    </div>
+</section>
+ <!-- قسم إضافة تعليق -->
+<section id="feedback" class="section-content" style="text-align: center; border: 2px dashed #d6a1b1;">
+    <h3 style="color: #b76e79;">✨ رأيكِ يهمنا يا جميلة!</h3>
+    <p>هل أعجبتكِ خدماتنا؟ يسعدنا جداً مشاركتكِ لتجربتك في مركز مدام سحر.</p>
+    <a href="https://wa.me/249916825552?text=مرحباً%20مدام%20سحر،%20أريد%20إضافة%20تعليق%20عن%20خدمتكم:" 
+       class="btn" style="background: #d6a1b1; margin-top: 10px;">
+       ✏️ أضيفي تعليقكِ عبر الواتساب
+    </a>
+</section>
+    <!-- الفوتر -->
+    <footer id="contact">
+        <h3>للحجز والاستفسار</h3>
+        <p>العنوان: المنورة، غرب نوتيلا بار، جوار مكتبة كوخ العجائب</p>
+        <a href="consultation.html" class="btn">طلب استشارة مجانية</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 جميع الحقوق محفوظة لمركز مدام سحر للتجميل</p>
+        </div>
+    </footer>
+
+ <!-- الأزرار العائمة -->
+    <a href="https://wa.me/249916825552" class="floating-btn" target="_blank" style="bottom: 80px;">📞 استشارة فورية</a>
+    <button onclick="document.getElementById('bookingModal').style.display='flex'" class="floating-btn" style="bottom: 20px;">✨ احجزي موعدك</button>
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <!-- نافذة اختيار الخدمة -->
+    <div id="bookingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:white; padding:30px; border-radius:30px; width:90%; max-width:400px; text-align:center;">
+            <h3 style="color: #b76e79;">اختاري الخدمة المطلوبة 🌸</h3>
+            <select id="serviceSelect" style="width:100%; padding:10px; margin:15px 0; border-radius:10px; border:1px solid #d6a1b1;">
+                <option value="تجهيز عروس">تجهيز عروس</option>
+                <option value="مكياج">مكياج</option>
+                <option value="حنة">حنة</option>
+                <option value="تنظيف بشرة">تنظيف بشرة</option>
+                <option value="أخرى">أخرى</option>
+            </select>
+            <button onclick="sendToWhatsApp()" class="btn" style="background:#d6a1b1; width:100%; padding:10px; color:white; border:none; border-radius:10px; cursor:pointer;">تأكيد الحجز عبر الواتساب</button>
+            <button onclick="document.getElementById('bookingModal').style.display='none'" style="margin-top:15px; background:none; border:none; color:#888; cursor:pointer;">إلغاء</button>
+        </div>
+    </div>
+
+    <!-- السكربتات -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        function sendToWhatsApp() {
+            var service = document.getElementById('serviceSelect').value;
+            var url = "https://wa.me/249916825552?text=أهلاً%20مدام%20سحر،%20أريد%20حجز%20موعد%20لخدمة:%20" + encodeURIComponent(service);
+            window.open(url, '_blank');
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

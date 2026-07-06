@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تجهيزات العروس الملكية | مركز مدام سحر</title>
+    <style>
+        :root { --royal-gold: #d4af37; --deep-rose: #b76e79; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fffdfd; margin: 0; padding: 0; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/bridal-bg.jpg') no-repeat center/cover; height: 60vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .gallery-img { width: 100%; border-radius: 20px; transition: transform 0.3s; }
+        .gallery-img:hover { transform: scale(1.05); }
+        .feature-card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px; border-right: 5px solid var(--royal-gold); }
+        .btn-royal { background: var(--deep-rose); color: white; padding: 20px 40px; border-radius: 50px; font-size: 1.2em; border: none; cursor: pointer; display: block; width: 80%; margin: 30px auto; }
+        h1, h2 { color: var(--deep-rose); }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div>
+        <h1>ليلة العُمر.. كما حلمتِ بها تماماً ✨</h1>
+        <p>في مركز "مدام سحر"، نحن لا نجهز العروس، نحن نصنع ملكة ليلتها.</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- معرض الصور -->
+    <div class="gallery-grid">
+        <img src="images/bridal1.jpeg" class="gallery-img" alt="عروس 1">
+        <img src="images/bridal2.jpeg" class="gallery-img" alt="عروس 2">
+    </div>
+
+    <!-- نص تسويقي جذاب -->
+    <div style="text-align: center; line-height: 1.8;">
+        <h2>لماذا تختار عرائسنا مركز مدام سحر؟</h2>
+        <p>لأننا نعلم أن يوم زفافك هو أهم يوم في حياتك، صممنا لكِ باقة "التاج الملكي". ليس مجرد مكياج وتسريحة، بل رحلة عناية متكاملة تبدأ من تأهيل البشرة وصولاً إلى اللمسة الأخيرة في قاعة الفرح.</p>
+    </div>
+
+    <!-- بطاقات الخدمات التفاعلية -->
+    <div class="feature-card">
+        <h3>👑 الباقة الملكية (الكل في واحد)</h3>
+        <p>أكثر من 10 خدمات مجمعة لتوفير عناء التنقل والبحث.</p>
+        <ul style="padding-right: 20px;">
+            <li>تنظيف بشرة "دياموند" للنضارة القصوى.</li>
+            <li>مكياج "سحر الحصري" (ثبات 24 ساعة).</li>
+            <li>تسريحات عالمية تناسب فستانك وتفاصيل وجهك.</li>
+            <li>نقش حنة تراثي بلمسات عصرية.</li>
+            <li>خدمة "عروس الطوارئ" (مرافق للتدقيق).</li>
+        </ul>
+    </div>
+
+    <button class="btn-royal" onclick="document.getElementById('contactModal').style.display='flex'">احجزي استشارتك المجانية الآن 💍</button>
+</div>
+
+<!-- المودال المطور لجمع بيانات أكثر -->
+<div id="contactModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:white; padding:40px; border-radius:30px; width:90%; max-width:400px; text-align:center;">
+        <h3>دعينا نخطط ليومكِ الكبير 👰</h3>
+        <input type="text" id="bName" placeholder="اسمك الكريم" style="width:90%; padding:15px; margin:10px 0; border:1px solid #ddd; border-radius:10px;">
+        <input type="date" id="bDate" style="width:90%; padding:15px; margin:10px 0; border:1px solid #ddd; border-radius:10px;">
+        <button onclick="sendToWhatsApp()" style="background:var(--deep-rose); color:white; border:none; padding:15px 30px; border-radius:10px; width:100%;">تأكيد الحجز والاستفسار</button>
+    </div>
+</div>
+
+<script>
+    function sendToWhatsApp() {
+        var name = document.getElementById('bName').value;
+        var date = document.getElementById('bDate').value;
+        var url = "https://wa.me/249916825552?text=أهلاً%20مدام%20سحر،%20أنا%20العروس%20" + name + "%20وتاريخ%20زفافي%20هو%20" + date + "%20وأرغب%20في%20حجز%20الباقة%20الملكية.";
+        window.open(url, '_blank');
+    }
+</script>
+<button id="backButton" class="back-btn">رجوع</button>
+</body>
+</html>
