@@ -660,7 +660,28 @@ input:focus, select:focus {
     border-radius: 25px; /* حواف دائرية تتناسب مع زر الحجز */
     cursor: pointer;
     font-family: 'Arial', sans-serif;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s;/* إخفاء القائمة في الموبايل افتراضياً */
+@media screen and (max-width: 768px) {
+    #nav-menu {
+        display: none; 
+        width: 100%;
+    }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 15px;
+    }
+}
+
+/* إظهار القائمة دائماً في الكمبيوتر */
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+    #nav-menu {
+        display: block !important;
+    }
+}
 }
 
 .back-btn:hover {
