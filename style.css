@@ -49,10 +49,10 @@ nav a:hover { color: var(--secondary); }
     }
 }
 
-/* تنسيق الجوال */
+ /* --- تنسيق الجوال --- */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: block !important;
     }
 
     #nav-menu {
@@ -61,27 +61,45 @@ nav a:hover { color: var(--secondary); }
         top: 80px;
         right: 0;
         width: 100%;
-        background: var(--primary); 
+        background: var(--primary) !important; 
         text-align: center;
-        padding: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        padding: 20px 0 !important;
+        z-index: 9999 !important;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* تنسيق الروابط داخل القائمة (تم تغيير اللون للأبيض لتظهر فوق الخلفية الملونة) */
+    /* هذا الجزء هو الذي يضمن ظهور القائمة وروابطها */
+    #nav-menu.active {
+        display: block !important;
+    }
+
+    #nav-menu ul {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #nav-menu li {
+        display: block !important;
+        width: 100% !important;
+    }
+
     #nav-menu a {
-        color: #ffffff !important; 
-        text-decoration: none;
-        font-size: 18px;
-        display: block;
-        padding: 15px;
-        transition: 0.3s;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-size: 18px !important;
+        display: block !important;
+        padding: 15px !important;
+        transition: 0.3s !important;
     }
     
     #nav-menu a:hover {
-        background: var(--secondary);
+        background: var(--secondary) !important;
     }
+}
 
     #nav-menu.active {
         display: block !important;
