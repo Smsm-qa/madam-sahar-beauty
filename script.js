@@ -1,8 +1,8 @@
-// تشغيل الوظائف عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-    checkWorkingHours(); // فحص أوقات العمل
+    // 1. فحص أوقات العمل
+    checkWorkingHours(); 
     
-    // 1. معالجة نموذج الحجز
+    // 2. معالجة نموذج الحجز
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', (e) => {
@@ -21,61 +21,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. الأسئلة الشائعة (FAQ)
+    // 3. نظام الأسئلة الشائعة (FAQ)
     document.querySelectorAll('.faq-question').forEach(button => {
         button.addEventListener('click', () => {
             const answer = button.nextElementSibling;
-            // إغلاق الإجابات الأخرى لجعل سؤال واحد مفتوح فقط
             document.querySelectorAll('.faq-answer').forEach(ans => {
                 if (ans !== answer) ans.style.display = 'none';
             });
-            // تبديل حالة الإجابة الحالية
             answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
         });
     });
 
-    // 3. المودال (نافذة الطوارئ) - تم دمج الوظيفة من الكود
-    window.openEmergencyModal = () => {
-        const modal = document.getElementById('emergencyModal');
-        if (modal) modal.style.display = 'block';
-    };
-    window.closeEmergencyModal = () => {
-        const modal = document.getElementById('emergencyModal');
-        if (modal) modal.style.display = 'none';
-    };
-
-    // 4. تغيير العرض
-    window.changeOffer = () => {
-        const box = document.getElementById('offerBox');
-        if (box) {
-            box.style.backgroundColor = "#b76e79";
-            box.style.color = "white";
-            box.innerHTML = "<h3>شكراً لاهتمامك!</h3><p>تواصل معنا عبر الواتساب للحصول على كود الخصم.</p>";
-        }
-    };
-
-    // 5. زر العودة للأعلى
+    // 4. زر العودة للأعلى
     const backToTopBtn = document.getElementById("backToTop");
     window.onscroll = () => {
         if (backToTopBtn) {
             backToTopBtn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none";
         }
     };
+
+    // 5. زر العودة للخلف
+    const backButton = document.getElementById('backButton');
+    if (backButton) {
+        backButton.addEventListener('click', () => { window.history.back(); });
+    }
 });
 
-// --- الوظائف الخارجية (Global Functions) ---
+// --- الوظائف العامة ---
 
-// نظام القائمة (Menu Toggle)
+// نظام القائمة (Menu)
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('active');
+    if (navMenu) navMenu.classList.toggle('active');
 }
 
 // فحص أوقات العمل
 function checkWorkingHours() {
     const alertDiv = document.getElementById('statusAlert');
     if (!alertDiv) return;
-    
     const hour = new Date().getHours();
     if (hour >= 9 && hour < 19) {
         alertDiv.innerHTML = "✅ المركز مفتوح الآن، نتشرف بزيارتكم!";
@@ -86,9 +69,20 @@ function checkWorkingHours() {
     }
 }
 
+// المودال (نافذة الطوارئ)
+function openEmergencyModal() { 
+    const modal = document.getElementById('emergencyModal');
+    if (modal) modal.style.display = 'block'; 
+}
+function closeEmergencyModal() { 
+    const modal = document.getElementById('emergencyModal');
+    if (modal) modal.style.display = 'none'; 
+}
+
 // إرسال واتساب
 function sendToWhatsApp() {
-    const service = document.getElementById('serviceSelect').value;
+    const serviceSelect = document.getElementById('serviceSelect');
+    const service = serviceSelect ? serviceSelect.value : "خدمة عامة";
     const url = `https://wa.me/249916825552?text=أهلاً مدام سحر، أريد حجز موعد لخدمة: ${service}`;
     window.open(url, '_blank');
 }
@@ -102,25 +96,26 @@ function rate(stars) {
     alert("شكراً لتقييمك لنا بـ " + stars + " نجوم!");
 }
 
-// تعقيم البيانات وتحديث السعر
+// تعقيم البيانات
 function sanitizeInput(str) {
     let temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
 }
 
+// تحديث السعر
 function updatePrice() {
-    let rawService = document.getElementById('serviceInput').value;
-    let rawPrice = document.getElementById('priceInput').value;
-    let cleanService = sanitizeInput(rawService);
-    let cleanPrice = sanitizeInput(rawPrice);
-    console.log("تم تعقيم البيانات: ", cleanService, cleanPrice);
+    let rawService = document.getElementById('serviceInput') ? document.getElementById('serviceInput').value : "";
+    let rawPrice = document.getElementById('priceInput') ? document.getElementById('priceInput').value : "";
+    console.log("تم تعقيم البيانات: ", sanitizeInput(rawService), sanitizeInput(rawPrice));
 }
 
-// زر العودة للخلف
-const backButton = document.getElementById('backButton');
-if (backButton) {
-    backButton.addEventListener('click', function() {
-        window.history.back();
-    });
+// تغيير العرض
+function changeOffer() {
+    const box = document.getElementById('offerBox');
+    if (box) {
+        box.style.backgroundColor = "#b76e79";
+        box.style.color = "white";
+        box.innerHTML = "<h3>شكراً لاهتمامك!</h3><p>تواصل معنا عبر الواتساب للحصول على كود الخصم.</p>";
+    }
 }
