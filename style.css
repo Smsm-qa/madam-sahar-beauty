@@ -763,18 +763,7 @@ input:focus, select:focus {
 
 .back-btn:hover {
     background-color: #b56a80; /* لون أغمق قليلاً عند التمرير */
-}.service-card a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #b76e79;
-    font-size: 14px;
-}
-.service-card a:hover {
-    background-color: #b76e79;
+} 
+
     color: white;
 }
