@@ -121,7 +121,7 @@ nav a:hover { color: var(--secondary); }
 }
 
 /* --- 3. العناصر العامة والأزرار --- */
-.container { padding: 40px 20px; text-align: center; }
+.container { padding: 40px 20px; text-align: center; width: 100%; }
 h2 { color: var(--primary); margin-bottom: 20px; }
 
 .btn { 
