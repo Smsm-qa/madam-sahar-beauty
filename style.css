@@ -72,21 +72,26 @@ nav a:hover { color: var(--secondary); }
     }
 
     /* تنسيق القائمة */
-  #nav-menu {
+ #nav-menu {
     display: none;
     position: absolute;
-    top: 80px; /* زيادة قليلاً للابتعاد عن الأيقونة */
-    right: 5%; /* لترك مساحة جمالية من الجوانب */
-    width: 90%; 
-    background-color: var(--bg-color);
+    top: 80px;
+    right: 5%;
+    width: 90%;
+    
+    /* سر الزجاج البلوري هنا */
+    background: rgba(255, 255, 255, 0.15); /* لون أبيض شبه شفاف */
+    backdrop-filter: blur(15px); /* تأثير التغبيش */
+    -webkit-backdrop-filter: blur(15px); /* لدعم متصفحات Safari */
+    
+    border: 1px solid rgba(255, 255, 255, 0.3); /* إطار شفاف يعطي لمسة فخامة */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    
+    border-radius: 20px;
     text-align: center;
     padding: 30px 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* ظل أكثر نعومة */
-    border-radius: 20px; /* زوايا دائرية لكامل القائمة */
-    border: 1px solid rgba(181, 106, 128, 0.2); /* إطار خفيف جداً */
     z-index: 9999;
 }
-
 #nav-menu ul {
     list-style: none;
     padding: 0;
@@ -882,6 +887,39 @@ p {
 
 /* لضمان وضوح النصوص داخل الأزرار */
 .btn-text, .service-card p, .service-card h3 {
-    color: var(--text-color) !important;
-    font-weight: bold;
+    color: var(--text-color) !important;::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }.header-icon {
+    font-size: 20px;
+    color: var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: s.separator {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+    margin: 0 15px;
+}cale(1); opacity: 0.7; }
+}
+    font-weight: bold;.glow-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #25d366; /* أخضر أو ذهبي */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #25d366;
+}header {
+    display: flex;
+    justify-content: space-between; /* اللوغو يمين، القائمة يسار */
+    align-items: center;
+}
+
+/* اجعل العنصر الجديد في المنتصف */
+.header-center {
+    display: flex;
+    align-items: center;
+}
 }
