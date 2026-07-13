@@ -6,6 +6,7 @@
     --accent-color: #d4af37;        /* لون خلفية فاتح جداً ومتناسق */
     --secondary-bg: #lelele;         /* لون نص داكن لوضوح القراءة */
     --hover-color: #b8860b;
+    --white: #ffffff; 
 }
 * { 
     box-sizing: border-box; 
