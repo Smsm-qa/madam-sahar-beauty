@@ -50,11 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- الوظائف العامة ---
 
 // نظام القائمة (Menu)
-function toggleMenu() {
+ function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    if (navMenu) navMenu.classList.toggle('active');
+    const menuToggle = document.querySelector('.menu-toggle'); // أضفنا هذا السطر
+    
+    if (navMenu) {
+        navMenu.classList.toggle('active');
+    }
+    
+    if (menuToggle) {
+        menuToggle.classList.toggle('active'); // هذا السطر سيجعل الزر يتحول لـ X
+    }
 }
-
 // فحص أوقات العمل
 function checkWorkingHours() {
     const alertDiv = document.getElementById('statusAlert');
