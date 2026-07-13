@@ -1,11 +1,11 @@
- 
+
 /* --- 1. أساسيات التصميم والمتغيرات --- */
 :root {
-    --primary: #883e4d;      /* وردي غامق ملكي وفخم */
-    --secondary: #a36573;    /* وردي غامق ترابي هادئ */
-    --light: #fff5f7;        /* لون خلفية فاتح جداً ومتناسق */
-    --text: #333333;         /* لون نص داكن لوضوح القراءة */
-    --white: #ffffff;
+    --bg-color: #121212;      /* وردي غامق ملكي وفخم */
+    --text-color: #ffffff;    /* وردي غامق ترابي هادئ */
+    --accent-color: #d4af37;        /* لون خلفية فاتح جداً ومتناسق */
+    --secondary-bg: #lelele;         /* لون نص داكن لوضوح القراءة */
+    --hover-color: #b8860b;
 }
 * { 
     box-sizing: border-box; 
@@ -65,7 +65,33 @@ nav a:hover { color: var(--secondary); }
         border-bottom-right-radius: 25px;
         z-index: 9999;
     }
+/* تنسيق القائمة الجديدة للجوال */
+    .menu-toggle {
+        display: flex !important; /* لضمان ظهورها عند تغيير الشاشة */
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 10px;
+    }
 
+    .menu-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #b56a80; /* اللون الذي اخترناه */
+        border-radius: 2px;
+        transition: 0.4s;
+    }/* عندما تكون القائمة في حالة 'active' (مفتوحة) */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 6px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0; /* يختفي الخط الأوسط */
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -6px);
+}
     /* هذا الكلاس يفعله الجافا سكريبت */
     #nav-menu.active {
         display: block !important;
@@ -118,7 +144,6 @@ nav a:hover { color: var(--secondary); }
     #nav-menu.active li {
         display: block !important;
     }
-}
 
 /* --- 3. العناصر العامة والأزرار --- */
 .container { padding: 40px 20px; text-align: center; width: 100%; }
@@ -773,8 +798,69 @@ input:focus, select:focus {
 }
 
 .back-btn:hover {
-    background-color: #b56a80; /* لون أغمق قليلاً عند التمرير */
-} 
+    background-color: #b56a80; /* لون أغمق قليلاً عند التمرير */ 
+    color: rgba(236, 12, 172, 0.484);
+} /* تحسين الحاوية (Container) */
+.hero-content {
+    padding: 60px 20px; /* زيادة المساحة ليعطي انطباعاً بالفخامة */
+    background-color: #fdfafb; /* لون خلفية هادئ جداً وفاتح */
+    border-bottom: 1px solid #eee; /* خط خفيف جداً للفصل */
+}
 
+/* تحسين العنوان (h2) */
+h2 {
+    font-size: 28px;
+    font-weight: 300; /* الخط الرفيع يعطي لمسة أناقة */
+    letter-spacing: 1px; /* تباعد بسيط بين الحروف */
+    color: #4a4a4a;
+    margin-bottom: 15px;
+}
+
+/* تحسين الفقرة (p) */
+p {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* تحسين الزر (btn) ليصبح أكثر عصرية */
+.btn {
+    background-color: transparent; /* خلفية شفافة */
+    color: #b56a80; /* اللون الأساسي للخط */
+    border: 1px solid #b56a80; /* إطار بنفس اللون */
+    padding: 12px 40px;
+    border-radius: 50px; /* حواف دائرية بالكامل */
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* اختياري لجعل النص بالإنجليزية جذاباً */
+}
+
+.btn:hover {
+    background-color: #b56a80;
+    color: white;
+}/* تنسيق قسم الفيديو ليملأ العرض */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* يغطي 60% من طول شاشة الهاتف */
+    overflow: hidden;
+    margin-bottom: 20px; /* مسافة بسيطة بين الفيديو وبقية الموقع */
+}
+
+/* التأكد من أن الفيديو يغطي المساحة بدون تشويه */
+.hero-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* هذا الأمر هو الأهم ليظهر الفيديو بشكل صحيح */
+}
+
+/* تنسيق النص فوق الفيديو (اختياري) */
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    text-align: center;
     color: white;
 }
