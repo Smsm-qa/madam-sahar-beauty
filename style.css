@@ -52,22 +52,26 @@ nav a:hover { color: var(--secondary); }
 
  /* --- تنسيق القآئمة عند ظهورها في الجوال  --- */
 @media (max-width: 768px) {
-    #nav-menu {
-        display: none; 
-        position: absolute;
-        top: 70px; 
-        left: 0;
-        width: 100%;
-        background: #ffffff; /* خلفية بيضاء نقية */
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* ظل ناعم لإعطاء عمق */
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        z-index: 9999;
+ #nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;            
+    width: 100%;
+    background-color: var(--bg-color) !important; /* لون الخلفية البيج الجديد */
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 10px 20px rgba(216, 167, 167, 0.2); /* ظل ناعم بلون وردي */
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid var(--accent-color); /* إطار وردي فخم */
+    z-index: 9999;
+}
     }
-/* تنسيق القائمة الجديدة للجوال */
-    .menu-toggle {
+ #nav-menu.active {
+    display: block !important;
+ 
+     .menu-toggle {
         display: flex !important; /* لضمان ظهورها عند تغيير الشاشة */
         flex-direction: column;
         gap: 6px;
@@ -864,4 +868,23 @@ p {
     background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
     text-align: center;
     color: white;
+}/* --- تعديل الأزرار والدوائر لتصبح واضحة --- */
+.btn, .service-card {
+    background-color: var(--secondary-bg) !important; 
+    color: var(--text-color) !important;             
+    border: 1px solid var(--accent-color) !important;
+    border-radius: 20px;                             
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+}
+
+/* لضمان وضوح النصوص داخل الأزرار */
+.btn-text, .service-card p, .service-card h3 {
+    color: var(--text-color) !important;
+    font-weight: bold;
 }
