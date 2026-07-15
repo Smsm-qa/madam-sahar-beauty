@@ -897,14 +897,36 @@ body {
 }
 
 /* تنسيق العنوان الأفقي ليناسب السطر الواحد */
-.header-text-horizontal {
+ .header-text-horizontal {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    padding: 5px;
-    flex-grow: 1; /* جعل العنوان يأخذ المساحة المتبقية في المنتصف */
+    gap: 15px;
+    padding: 0 10px;
+    flex-grow: 1;
+    /* خلفية بلون وردي خفيف جداً، مطابق لخلفية الموقع */
+    background-color: #fdf5f6; 
+}
+
+.main-title-horiz {
+    font-size: 16px;
+    font-weight: 900;
+    /* اللون الخمري الغامق المستخدم في أزرارك */
+    color: #4a2c2c; 
+    margin: 0;
+}
+
+.sub-title-horiz {
+    font-size: 12px;
+    /* لون وردي داكن ومميز للترحيب */
+    color: #a87979; 
+    margin: 0;
+}
+
+.ornament-horiz {
+    /* لون وردي غامق للزينة */
+    color: #a87979; 
+    font-size: 14px;
 }
 
 /* تنسيق الشعار */
