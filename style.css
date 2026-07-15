@@ -920,3 +920,45 @@ body {
     margin-top: 10px;
     opacity: 0.8;
 }
+/* تنسيق القسم ككل ليصبح شريطاً أفقياً */
+.header-text-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* مسافة بين العناصر */
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2d1b1b, #000000, #2d1b1b); /* خلفية سوداء بتدرج ملكي */
+    border-bottom: 2px solid #c5a059; /* خط سفلي ذهبي */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/* تنسيق النص الرئيسي */
+.main-title-horiz {
+    font-family: 'Georgia', serif; /* خط كلاسيكي فخم */
+    font-size: 24px; /* حجم مناسب للشريط الأفقي */
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d); /* تدرج ذهبي */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* تنسيق النص الفرعي (نرحب بكم) */
+.sub-title-horiz {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #e5c17d;
+    letter-spacing: 3px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* تنسيق الزخرفة الذهبية */
+.ornament-horiz {
+    color: #c5a059;
+    font-size: 16px;
+}
