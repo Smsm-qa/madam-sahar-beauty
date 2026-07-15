@@ -890,3 +890,33 @@ body {
     display: flex;
     align-items: center;
 }
+.header-text {
+    text-align: center;
+    padding: 30px;
+    background: radial-gradient(circle, #2d1b1b 0%, #000000 100%); /* خلفية سوداء ملكية */
+    border: 1px solid #c5a059; /* إطار ذهبي رفيع */
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); /* هالة ذهبية ناعمة */
+}
+
+.main-title {
+    font-family: 'Georgia', serif; /* خط كلاسيكي فخم */
+    font-size: 35px;
+    letter-spacing: 3px;
+    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d); /* تدرج ذهبي عميق */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+.sub-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #e5c17d; /* ذهبي باهت للترحيب */
+    letter-spacing: 6px; /* تباعد كبير يعطي فخامة */
+    margin-top: 10px;
+    opacity: 0.8;
+}
