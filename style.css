@@ -890,75 +890,67 @@ body {
     display: flex;
     align-items: center;
 }
-.header-text {
-    text-align: center;
-    padding: 30px;
-    background: radial-gradient(circle, #2d1b1b 0%, #000000 100%); /* خلفية سوداء ملكية */
-    border: 1px solid #c5a059; /* إطار ذهبي رفيع */
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); /* هالة ذهبية ناعمة */
-}
-
-.main-title {
-    font-family: 'Georgia', serif; /* خط كلاسيكي فخم */
-    font-size: 35px;
-    letter-spacing: 3px;
-    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d); /* تدرج ذهبي عميق */
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-    margin: 0;
-}
-
-.sub-title {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    color: #e5c17d; /* ذهبي باهت للترحيب */
-    letter-spacing: 6px; /* تباعد كبير يعطي فخامة */
-    margin-top: 10px;
-    opacity: 0.8;
-}
-/* تنسيق القسم ككل ليصبح شريطاً أفقياً */
-.header-text-horizontal {
+ .header-text-horizontal {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* مسافة بين العناصر */
-    padding: 10px 20px;
-    background: linear-gradient(to right, #2d1b1b, #000000, #2d1b1b); /* خلفية سوداء بتدرج ملكي */
-    border-bottom: 2px solid #c5a059; /* خط سفلي ذهبي */
+    gap: 10px; /* مسافة أقل بين العناصر */
+    padding: 8px 15px;
+    background: linear-gradient(to right, #2d1b1b, #000000, #2d1b1b);
+    border-bottom: 2px solid #c5a059;
     width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
+    white-space: nowrap; /* إجبار النص على البقاء في سطر واحد */
 }
 
-/* تنسيق النص الرئيسي */
 .main-title-horiz {
-    font-family: 'Georgia', serif; /* خط كلاسيكي فخم */
-    font-size: 24px; /* حجم مناسب للشريط الأفقي */
-    letter-spacing: 2px;
-    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d); /* تدرج ذهبي */
+    font-family: 'Georgia', serif;
+    font-size: 16px; /* تصغير الخط ليكون مناسباً للسطر الواحد */
+    letter-spacing: 1px;
+    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-transform: uppercase;
     margin: 0;
 }
 
-/* تنسيق النص الفرعي (نرحب بكم) */
 .sub-title-horiz {
     font-family: 'Arial', sans-serif;
-    font-size: 14px;
+    font-size: 12px; /* تصغير الترحيب */
     color: #e5c17d;
-    letter-spacing: 3px;
-    margin: 0;
+    margin: 0 0 0 10px; /* مسافة بسيطة بين العنوان والترحيب */
     opacity: 0.8;
+}.header-text-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    /* خلفية بلون وردي فاتح شفاف يتماشى مع الموقع */
+    background: rgba(255, 240, 245, 0.8); 
+    border-bottom: 2px solid #a87979; /* خط سفلي بلون خمري */
+    width: 100%;
+    white-space: nowrap;
 }
 
-/* تنسيق الزخرفة الذهبية */
-.ornament-horiz {
-    color: #c5a059;
+.main-title-horiz {
+    font-family: 'Arial', sans-serif;
     font-size: 16px;
+    font-weight: 800;
+    /* لون النص خمري داكن (مطابق للون الأزرار في موقعك) */
+    color: #4a2c2c; 
+    margin: 0;
+}
+
+.sub-title-horiz {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    /* لون وردي داكن للترحيب */
+    color: #a87979; 
+    margin: 0 0 0 10px;
+    font-weight: 600;
+}
+
+.ornament-horiz {
+    color: #a87979; /* الزخرفة بنفس لون الترحيب */
+    font-size: 14px;
 }
