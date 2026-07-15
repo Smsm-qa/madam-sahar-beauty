@@ -908,24 +908,21 @@ body {
     background-color: #fdf5f6; 
 }
 
-.main-title-horiz {
+ .main-title-horiz {
     font-size: 16px;
     font-weight: 900;
-    /* اللون الخمري الغامق المستخدم في أزرارك */
-    color: #4a2c2c; 
+    color: #5d2a2a; /* اللون الخمري الأكثر بروزاً */
     margin: 0;
 }
 
 .sub-title-horiz {
     font-size: 12px;
-    /* لون وردي داكن ومميز للترحيب */
-    color: #a87979; 
+    color: #b56576; /* اللون الوردي المائل للخمري */
     margin: 0;
 }
 
 .ornament-horiz {
-    /* لون وردي غامق للزينة */
-    color: #a87979; 
+    color: #b56576; /* مطابق للون الترحيب */
     font-size: 14px;
 }
 
