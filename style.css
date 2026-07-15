@@ -886,71 +886,62 @@ body {
     letter-spacing: 1px;
 }
 
-.header-center {
+ /* الحاوية الرئيسية للهيدر */
+.header-container {
     display: flex;
+    justify-content: space-between; /* توزيع العناصر على الأطراف */
     align-items: center;
+    padding: 10px;
+    background-color: #fff; /* خلفية بيضاء أو حسب لون موقعك */
+    border-bottom: 1px solid #eee;
 }
- .header-text-horizontal {
+
+/* تنسيق العنوان الأفقي ليناسب السطر الواحد */
+.header-text-horizontal {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* مسافة أقل بين العناصر */
-    padding: 8px 15px;
-    background: linear-gradient(to right, #2d1b1b, #000000, #2d1b1b);
-    border-bottom: 2px solid #c5a059;
-    width: 100%;
-    white-space: nowrap; /* إجبار النص على البقاء في سطر واحد */
-}
-
-.main-title-horiz {
-    font-family: 'Georgia', serif;
-    font-size: 16px; /* تصغير الخط ليكون مناسباً للسطر الواحد */
-    letter-spacing: 1px;
-    background: linear-gradient(to bottom, #fdf6e4, #c5a059, #8c6a2d);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin: 0;
-}
-
-.sub-title-horiz {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px; /* تصغير الترحيب */
-    color: #e5c17d;
-    margin: 0 0 0 10px; /* مسافة بسيطة بين العنوان والترحيب */
-    opacity: 0.8;
-}.header-text-horizontal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 15px;
-    /* خلفية بلون وردي فاتح شفاف يتماشى مع الموقع */
-    background: rgba(255, 240, 245, 0.8); 
-    border-bottom: 2px solid #a87979; /* خط سفلي بلون خمري */
-    width: 100%;
+    gap: 8px;
     white-space: nowrap;
+    padding: 5px;
+    flex-grow: 1; /* جعل العنوان يأخذ المساحة المتبقية في المنتصف */
 }
 
+/* تنسيق الشعار */
+.logo img {
+    height: 40px; /* تحجيم اللوجو ليناسب الشريط */
+    width: auto;
+}
+
+/* تنسيق زر القائمة */
+.menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #4a2c2c;
+}
+
+/* تحسين العناوين للفخامة */
 .main-title-horiz {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    /* لون النص خمري داكن (مطابق للون الأزرار في موقعك) */
-    color: #4a2c2c; 
+    font-size: 14px; /* حجم صغير ومناسب للجوال */
+    font-weight: bold;
+    color: #4a2c2c;
     margin: 0;
 }
 
 .sub-title-horiz {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    /* لون وردي داكن للترحيب */
-    color: #a87979; 
-    margin: 0 0 0 10px;
-    font-weight: 600;
+    font-size: 10px;
+    color: #a87979;
+    margin: 0;
 }
 
 .ornament-horiz {
-    color: #a87979; /* الزخرفة بنفس لون الترحيب */
-    font-size: 14px;
+    color: #c5a059;
+    font-size: 12px;
 }
